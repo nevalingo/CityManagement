@@ -4,7 +4,7 @@
 	<title></title>
 </head>
 <body>
-
+<button id="newcitybutton">ADD CITY</button>
 <ul id="sehirler">
 	<li>ISTANBUL</li>
 	<li>ANKARA</li>
@@ -15,11 +15,14 @@
 </body>
 
 <script type="text/javascript">
-	
-	var newLi = document.createElement("li");
-	newLi.innerHTML="İZMİR"
-	document.getElementById('sehirler').appendChild(newLi)
 
+	function addnewcity() {
+		var newLi = document.createElement("li");
+		newLi.innerHTML="İZMİR"
+		document.getElementById('sehirler').appendChild(newLi)	
+	}
+
+	document.getElementById("newcitybutton").onclick=addnewcity
 </script>
 
 
