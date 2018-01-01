@@ -18,14 +18,15 @@
 <script type="text/javascript">
 
 	function addnewcity() {
-		var cityname = document.getElementById("newcityname").value
+		var citynameinput = document.getElementById("newcityname")
+		var cityname = citynameinput.value
 
 		if (cityname!="") {
 			var newLi = document.createElement("li");
 			newLi.innerHTML=cityname
 			document.getElementById('cities').appendChild(newLi)
-			document.getElementById("newcityname").value=""
-			document.getElementById("newcityname").focus()
+			citynameinput.value=""
+			citynameinput.focus()
 		} else {
 			alert ("cityname cannot be blank")
 		}
