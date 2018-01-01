@@ -22,14 +22,16 @@
 
 <script type="text/javascript">
 
-	function addnewcity() {
-		var citynameinput = document.getElementById("newcityname")
+
+	function addNewItemToList(inputId, listId) {
+
+		var citynameinput = document.getElementById(inputId)
 		var cityname = citynameinput.value
 
 		if (cityname!="") {
 			var newLi = document.createElement("li");
 			newLi.innerHTML=cityname
-			document.getElementById('cities').appendChild(newLi)
+			document.getElementById(listId).appendChild(newLi)
 			citynameinput.value=""
 			citynameinput.focus()
 		} else {
@@ -38,23 +40,14 @@
 		
 	}
 
+	function addnewcity() {
+		addNewItemToList("newcityname", "cities")
+	}
+
 	document.getElementById("newcitybutton").onclick=addnewcity
 
-		function addnewcountry() {
-		var countrynameinput = document.getElementById("newcountryname")
-		var countryname = countrynameinput.value
-
-		if (countryname!="") {
-			var newLi = document.createElement("li");
-			newLi.innerHTML=countryname
-			document.getElementById("countries").appendChild(newLi)
-			countrynameinput.value=""
-			countrynameinput.focus()
-			
-		} else {
-			alert ("countryname cannot be blank")
-		}
-		
+	function addnewcountry() {
+		addNewItemToList("newcountryname", "countries")
 	}
 
 	document.getElementById("newcountrybutton").onclick=addnewcountry
