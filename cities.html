@@ -25,17 +25,17 @@
 
 	function addNewItemToList(inputId, listId) {
 
-		var citynameinput = document.getElementById(inputId)
-		var cityname = citynameinput.value
+		var inputElement = document.getElementById(inputId)
+		var inputValue = inputElement.value
 
-		if (cityname!="") {
+		if (inputValue!="") {
 			var newLi = document.createElement("li");
-			newLi.innerHTML=cityname
+			newLi.innerHTML=inputValue
 			document.getElementById(listId).appendChild(newLi)
-			citynameinput.value=""
-			citynameinput.focus()
+			inputElement.value=""
+			inputElement.focus()
 		} else {
-			alert ("cityname cannot be blank")
+			alert ("input cannot be blank")
 		}
 		
 	}
