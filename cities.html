@@ -12,7 +12,12 @@
 	<li>BURSA</li>
 </ul>
 
-
+<input id="newcountryname" />
+<button id="newcountrybutton">ADD COUNTRY</button>
+<ul id="countries">
+	<li>TURKEY</li>
+	<li>GERMANY</li>
+</ul>
 </body>
 
 <script type="text/javascript">
@@ -34,6 +39,26 @@
 	}
 
 	document.getElementById("newcitybutton").onclick=addnewcity
+
+		function addnewcountry() {
+		var countrynameinput = document.getElementById("newcountryname")
+		var countryname = countrynameinput.value
+
+		if (countryname!="") {
+			var newLi = document.createElement("li");
+			newLi.innerHTML=countryname
+			document.getElementById("countries").appendChild(newLi)
+			countrynameinput.value=""
+			countrynameinput.focus()
+			
+		} else {
+			alert ("countryname cannot be blank")
+		}
+		
+	}
+
+	document.getElementById("newcountrybutton").onclick=addnewcountry
+
 </script>
 
 
