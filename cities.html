@@ -6,7 +6,7 @@
 <body>
 <input id="newcityname" />
 <button id="newcitybutton">ADD CITY</button>
-<ul id="sehirler">
+<ul id="cities">
 	<li>ISTANBUL</li>
 	<li>ANKARA</li>
 	<li>BURSA</li>
@@ -19,11 +19,17 @@
 
 	function addnewcity() {
 		var cityname = document.getElementById("newcityname").value
-		var newLi = document.createElement("li");
-		newLi.innerHTML=cityname
-		document.getElementById('sehirler').appendChild(newLi)
-		document.getElementById("newcityname").value=""
-		document.getElementById("newcityname").focus()	
+
+		if (cityname!="") {
+			var newLi = document.createElement("li");
+			newLi.innerHTML=cityname
+			document.getElementById('cities').appendChild(newLi)
+			document.getElementById("newcityname").value=""
+			document.getElementById("newcityname").focus()
+		} else {
+			alert ("cityname cannot be blank")
+		}
+		
 	}
 
 	document.getElementById("newcitybutton").onclick=addnewcity
