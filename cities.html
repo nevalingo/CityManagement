@@ -21,7 +21,9 @@
 		var cityname = document.getElementById("newcityname").value
 		var newLi = document.createElement("li");
 		newLi.innerHTML=cityname
-		document.getElementById('sehirler').appendChild(newLi)	
+		document.getElementById('sehirler').appendChild(newLi)
+		document.getElementById("newcityname").value=""
+		document.getElementById("newcityname").focus()	
 	}
 
 	document.getElementById("newcitybutton").onclick=addnewcity
