@@ -7,21 +7,26 @@
 <input id="newcityname" />
 <button id="newcitybutton">ADD CITY</button>
 <ul id="cities">
-	<li>ISTANBUL</li>
-	<li>ANKARA</li>
-	<li>BURSA</li>
+	<li><span>ISTANBUL</span><button>X</button></li>
+	<li><span>ANKARA</span><button>X</button></li>
+	<li><span>BURSA</span><button>X</button></li>
 </ul>
 
 <input id="newcountryname" />
 <button id="newcountrybutton">ADD COUNTRY</button>
 <ul id="countries">
-	<li>TURKEY</li>
-	<li>GERMANY</li>
+	<li><span>TURKEY</span><button>X</button></li>
+	<li><span>GERMANY</span><button>X</button></li>
 </ul>
 </body>
 
 <script type="text/javascript">
 
+	function removeItem () {
+		var button = this
+		// ul.removechild(li)
+		button.parentNode.parentNode.removeChild(button.parentNode)
+	}
 
 	function addNewItemToList(inputId, listId) {
 
@@ -29,9 +34,19 @@
 		var inputValue = inputElement.value
 
 		if (inputValue!="") {
+			// creating lineItem
 			var newLi = document.createElement("li");
-			newLi.innerHTML=inputValue
+			var newSpan = document.createElement("span")
+			var newButton = document.createElement("button")
+			newSpan.innerHTML = inputValue
+			newButton.innerHTML = "X"
+			newLi.appendChild(newSpan)
+			newLi.appendChild(newButton)
 			document.getElementById(listId).appendChild(newLi)
+
+			// binding
+			newButton.onclick = removeItem
+
 			inputElement.value=""
 			inputElement.focus()
 		} else {
