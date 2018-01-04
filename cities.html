@@ -7,20 +7,31 @@
 <input id="newcityname" />
 <button id="newcitybutton">ADD CITY</button>
 <ul id="cities">
-	<li><span>ISTANBUL</span><button>X</button></li>
-	<li><span>ANKARA</span><button>X</button></li>
-	<li><span>BURSA</span><button>X</button></li>
 </ul>
 
 <input id="newcountryname" />
 <button id="newcountrybutton">ADD COUNTRY</button>
 <ul id="countries">
-	<li><span>TURKEY</span><button>X</button></li>
-	<li><span>GERMANY</span><button>X</button></li>
 </ul>
 </body>
 
 <script type="text/javascript">
+
+	function insertItem (inputValue, listId) {
+		// creating lineItem
+		var newLi = document.createElement("li");
+		var newSpan = document.createElement("span")
+		var newButton = document.createElement("button")
+		newSpan.innerHTML = inputValue
+		newButton.innerHTML = "X"
+		newLi.appendChild(newSpan)
+		newLi.appendChild(newButton)
+		document.getElementById(listId).appendChild(newLi)
+
+		// binding
+		newButton.onclick = removeItem
+
+	}
 
 	function removeItem () {
 		var button = this
@@ -34,19 +45,8 @@
 		var inputValue = inputElement.value
 
 		if (inputValue!="") {
-			// creating lineItem
-			var newLi = document.createElement("li");
-			var newSpan = document.createElement("span")
-			var newButton = document.createElement("button")
-			newSpan.innerHTML = inputValue
-			newButton.innerHTML = "X"
-			newLi.appendChild(newSpan)
-			newLi.appendChild(newButton)
-			document.getElementById(listId).appendChild(newLi)
-
-			// binding
-			newButton.onclick = removeItem
-
+			
+			insertItem(inputValue, listId)
 			inputElement.value=""
 			inputElement.focus()
 		} else {
@@ -67,6 +67,12 @@
 
 	document.getElementById("newcountrybutton").onclick=addnewcountry
 
+	//  adding initial items
+	insertItem("ISTANBUL", "cities")
+	insertItem("ANKARA", "cities")
+	insertItem("BURSA", "cities")
+	insertItem("TURKEY", "countries")
+	insertItem("GERMANY", "countries")
 </script>
 
 
